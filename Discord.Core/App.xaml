@@ -24,6 +24,7 @@
         <SolidColorBrush x:Key="DarkGray">#64686F</SolidColorBrush>
         <SolidColorBrush x:Key="Red">#F04747</SolidColorBrush>
         <SolidColorBrush x:Key="MediumGray">#40444B</SolidColorBrush>
+        <SolidColorBrush x:Key="BlackGray">#202225</SolidColorBrush>
 
         <!-- Styles -->
 
@@ -36,7 +37,7 @@
             <Setter Property="Padding" Value="7"/>
             <Style.Resources>
                 <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="3"/>
+                    <Setter Property="CornerRadius" Value="6"/>
                 </Style>
             </Style.Resources>
             <Style.Triggers>
@@ -81,8 +82,8 @@
 
         <Style x:Key="CircleButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="{StaticResource Blue}"/>
-            <Setter Property="Height" Value="50"/>
-            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="45"/>
+            <Setter Property="Width" Value="45"/>
             <Setter Property="FontSize" Value="45"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Template">

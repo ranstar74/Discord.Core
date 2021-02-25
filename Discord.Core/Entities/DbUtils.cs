@@ -61,7 +61,6 @@ namespace Discord.Core.Entities
             }
             catch (Exception)
             {
-                throw;
                 return false;
             }
             return true;

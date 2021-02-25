@@ -1,10 +1,8 @@
 ﻿using Discord.Core.Entities;
 using Discord.Core.Entities.Tables;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
@@ -61,7 +59,10 @@ namespace Discord.Core.Pages
             });
         }
 
-        private void MessageTextBoxKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        /// <summary>
+        /// Actions for sending message.
+        /// </summary>
+        private void MessageTextBoxKeyDown(object sender, KeyEventArgs e)
         {
             if(e.Key == System.Windows.Input.Key.Enter)
                 if (!string.IsNullOrEmpty(MessageTextBox.Text))

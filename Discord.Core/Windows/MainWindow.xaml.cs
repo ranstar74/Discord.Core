@@ -1,12 +1,8 @@
-﻿using Discord.Core.Entities;
-using Discord.Core.Entities.Tables;
+﻿using Discord.Core.Entities.Tables;
 using Discord.Core.Pages;
-using System;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Threading;
 
 namespace Discord.Core.Windows
 {

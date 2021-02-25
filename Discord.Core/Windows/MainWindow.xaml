@@ -10,16 +10,16 @@
         Style="{StaticResource DarkWindowStyle}"
         FontSize="14"
         
-        Title="Discord" Height="450" Width="800">
+        Title="Discord" Height="750" Width="1200">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="65" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
         <!-- Groups -->
-        <Grid Grid.Column="0">
-            <DockPanel LastChildFill="False" Margin="5">
+        <Grid Grid.Column="0" Background="{StaticResource BlackGray}">
+            <StackPanel Margin="5">
                 <ItemsControl x:Name="GroupsControl" DockPanel.Dock="Top">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -28,7 +28,7 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Button Margin="0, 3, 0, 3"
+                            <Button Margin="0, 4, 0, 4"
                                     Click="ServerSelectClick"
                                     Tag="{Binding Group}"
                                     Style="{StaticResource CircleButtonStyle}"
@@ -40,7 +40,7 @@
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
-                <Button
+                <Button Margin="0, 4, 0, 4"
                         DockPanel.Dock="Bottom" 
                         Click="AddNewServerClick"
                         Style="{StaticResource CircleButtonStyle}">
@@ -48,7 +48,7 @@
                            RenderOptions.BitmapScalingMode="Fant" 
                            RenderOptions.EdgeMode="Aliased"/>
                 </Button>
-            </DockPanel>
+            </StackPanel>
         </Grid>
 
         <!-- Content -->

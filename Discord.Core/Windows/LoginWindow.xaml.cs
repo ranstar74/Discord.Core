@@ -1,8 +1,10 @@
 ﻿using Discord.Core.Entities;
 using Discord.Core.Entities.Tables;
+using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace Discord.Core.Windows
 {
@@ -15,8 +17,6 @@ namespace Discord.Core.Windows
         {
             InitializeComponent(); 
             DataContext = this;
-
-            var msg = DbUtils.DiscordDb.Messages.ToList();
         }
 
         private void LoginButton(object sender, RoutedEventArgs e)
