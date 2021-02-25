@@ -1,0 +1,84 @@
+﻿<Window x:Class="Discord.Core.Windows.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Discord.Core.Windows" xmlns:usercontrols="clr-namespace:Discord.Core.UserControls"
+        mc:Ignorable="d"
+        
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource DarkWindowStyle}"
+        MouseDown="WindowMouseDown"
+        ResizeMode="CanMinimize"
+        
+        Title="Discord" Height="450" Width="800">
+    <Grid x:Name="AuthGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="25, 20, 25, 25">
+
+            <Label Content="С возвращением!" 
+                   Foreground="White" 
+                   HorizontalAlignment="Center"
+                   FontSize="24" 
+                   FontFamily="/Discordx;component/Resources/Fonts/Whitney/#Whitney Semibold"/>
+
+            <Label Content="Мы так рады видеть вас снова!" 
+                   HorizontalAlignment="Center"
+                   Foreground="{StaticResource GrayMiddle}" 
+                   FontSize="15"/>
+
+            <usercontrols:ValidateEntryControl 
+                x:Name="LoginEntry" 
+                Header="АДРЕС ЭЛЕКТРОННОЙ ПОЧТЫ ИЛИ НОМЕР ТЕЛЕФОНА" 
+                Input="ranstar74"
+                Margin="0, 15, 0, 0"/>
+
+            <usercontrols:ValidateEntryControl 
+                x:Name="PasswordEntry" 
+                Header="ПАРОЛЬ" 
+                Input="9729"
+                Margin="0, 15, 0, 0"/>
+
+            <Label Content="Забыли пароль?" Foreground="{StaticResource Blue}"/>
+
+            <Button Content="Вход" Click="LoginButton" Margin="0, 15, 0, 0" Style="{StaticResource RoundButtonStyle}"/>
+
+            <TextBlock Margin="0, 10, 0, 0">
+                <Run Text="Нужна учетная запись?" Foreground="{StaticResource GrayMiddle}"/>
+                <Run Text="Зарегестрироваться" Foreground="{StaticResource DarkGray}"/>
+            </TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <Image Source="/Resources/Images/qrSample.png" Width="180" 
+                   Margin="25"
+                   RenderOptions.BitmapScalingMode="Fant"/>
+
+            <StackPanel>
+                <TextBlock Text="Войти с помощью QR-кода" 
+                       Foreground="White" 
+                       HorizontalAlignment="Center"
+                       FontSize="24"
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"
+                       FontFamily="/Discord.Core;component/Resources/Fonts/Whitney/#Whitney Semibold"/>
+
+                <TextBlock
+                           TextWrapping="Wrap"
+                           Margin="30, 10, 30, 10"
+                           FontSize="16"
+                           TextAlignment="Center"
+                           Foreground="{StaticResource GrayMiddle}">
+                    <Run Text="Отсканируйте код с помощью"/>
+                    <Run Text="мобильного приложения Discord" 
+                         FontFamily="/Discord.Core;component/Resources/Fonts/Whitney/#Whitney Semibold"/>
+                    <Run Text=", чтобы сразу же войти в систему."/>
+                </TextBlock>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,103 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>Discord.Core</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Fonts\Whitney\Whitney-Black.ttf" />
+    <None Remove="Resources\Fonts\Whitney\Whitney-BlackItalic.ttf" />
+    <None Remove="Resources\Fonts\Whitney\Whitney-Bold.ttf" />
+    <None Remove="Resources\Fonts\Whitney\Whitney-BoldItalic.ttf" />
+    <None Remove="Resources\Fonts\Whitney\Whitney-Book.ttf" />
+    <None Remove="Resources\Fonts\Whitney\Whitney-BookItalic.ttf" />
+    <None Remove="Resources\Fonts\Whitney\Whitney-Light.ttf" />
+    <None Remove="Resources\Fonts\Whitney\Whitney-LightItalic.ttf" />
+    <None Remove="Resources\Fonts\Whitney\Whitney-Medium.ttf" />
+    <None Remove="Resources\Fonts\Whitney\Whitney-MediumItalic.ttf" />
+    <None Remove="Resources\Fonts\Whitney\Whitney-Semibold.ttf" />
+    <None Remove="Resources\Fonts\Whitney\Whitney-SemiboldItalic.ttf" />
+    <None Remove="Resources\Fonts\Whitney\WhitneyIndexBlack-RdBd.ttf" />
+    <None Remove="Resources\Fonts\Whitney\WhitneyIndexBlack-RdCnLt.ttf" />
+    <None Remove="Resources\Fonts\Whitney\WhitneyIndexBlack-RdLt.ttf" />
+    <None Remove="Resources\Fonts\Whitney\WhitneyIndexBlack-RdMd.ttf" />
+    <None Remove="Resources\Fonts\Whitney\WhitneyIndexBlack-SqBd.ttf" />
+    <None Remove="Resources\Fonts\Whitney\WhitneyIndexBlack-SqCnLt.ttf" />
+    <None Remove="Resources\Fonts\Whitney\WhitneyIndexBlack-SqLight.ttf" />
+    <None Remove="Resources\Fonts\Whitney\WhitneyIndexBlack-SqMd.ttf" />
+    <None Remove="Resources\Fonts\Whitney\WhitneyIndexWhite-RdBd.ttf" />
+    <None Remove="Resources\Fonts\Whitney\WhitneyIndexWhite-RdCnLt.ttf" />
+    <None Remove="Resources\Fonts\Whitney\WhitneyIndexWhite-RdLt.ttf" />
+    <None Remove="Resources\Fonts\Whitney\WhitneyIndexWhite-RdMd.ttf" />
+    <None Remove="Resources\Fonts\Whitney\WhitneyIndexWhite-SqBd.ttf" />
+    <None Remove="Resources\Fonts\Whitney\WhitneyIndexWhite-SqCnLt.ttf" />
+    <None Remove="Resources\Fonts\Whitney\WhitneyIndexWhite-SqLt.ttf" />
+    <None Remove="Resources\Fonts\Whitney\WhitneyIndexWhite-SqMd.ttf" />
+    <None Remove="Resources\Images\btnAddIcon.png" />
+    <None Remove="Resources\Images\noAvatar.png" />
+    <None Remove="Resources\Images\qrSample.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\Whitney\Whitney-Black.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\Whitney-BlackItalic.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\Whitney-Bold.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\Whitney-BoldItalic.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\Whitney-Book.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\Whitney-BookItalic.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\Whitney-Light.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\Whitney-LightItalic.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\Whitney-Medium.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\Whitney-MediumItalic.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\Whitney-Semibold.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\Whitney-SemiboldItalic.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\WhitneyIndexBlack-RdBd.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\WhitneyIndexBlack-RdCnLt.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\WhitneyIndexBlack-RdLt.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\WhitneyIndexBlack-RdMd.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\WhitneyIndexBlack-SqBd.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\WhitneyIndexBlack-SqCnLt.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\WhitneyIndexBlack-SqLight.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\WhitneyIndexBlack-SqMd.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\WhitneyIndexWhite-RdBd.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\WhitneyIndexWhite-RdCnLt.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\WhitneyIndexWhite-RdLt.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\WhitneyIndexWhite-RdMd.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\WhitneyIndexWhite-SqBd.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\WhitneyIndexWhite-SqCnLt.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\WhitneyIndexWhite-SqLt.ttf" />
+    <Resource Include="Resources\Fonts\Whitney\WhitneyIndexWhite-SqMd.ttf" />
+    <Resource Include="Resources\Images\btnAddIcon.png" />
+    <Resource Include="Resources\Images\noAvatar.png" />
+    <Resource Include="Resources\Images\qrSample.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,113 @@
+﻿<Application x:Class="Discord.Core.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Discord.Core"
+             StartupUri="Windows/LoginWindow.xaml">
+    <Application.Resources>
+
+        <!-- Force styles -->
+
+        <Style x:Key="DarkWindowStyle" TargetType="Window">
+            <Setter Property="Background" Value="#36393F"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="/Discord.Core;component/Resources/Fonts/Whitney/#Whitney Medium"/>
+        </Style>
+
+        <!-- Colors -->
+
+        <SolidColorBrush x:Key="GrayMiddle">#B7B9BC</SolidColorBrush>
+        <SolidColorBrush x:Key="Dark">#222428</SolidColorBrush>
+        <SolidColorBrush x:Key="LightBlue">#7289DA</SolidColorBrush>
+        <SolidColorBrush x:Key="Blue">#7289DA</SolidColorBrush>
+        <SolidColorBrush x:Key="BlueFocused">#677BC4</SolidColorBrush>
+        <SolidColorBrush x:Key="BluePressed">#5B6EAE</SolidColorBrush>
+        <SolidColorBrush x:Key="DarkGray">#64686F</SolidColorBrush>
+        <SolidColorBrush x:Key="Red">#F04747</SolidColorBrush>
+        <SolidColorBrush x:Key="MediumGray">#40444B</SolidColorBrush>
+
+        <!-- Styles -->
+
+        <Style x:Key="RoundTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Background" Value="#303339"/>
+            <Setter Property="Height" Value="42"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#C3C4C6"/>
+            <Setter Property="Padding" Value="7"/>
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="3"/>
+                </Style>
+            </Style.Resources>
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="False">
+                    <Setter Property="BorderBrush" Value="{StaticResource Dark}"/>
+                </Trigger>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="{StaticResource LightBlue}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="RoundButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource Blue}"/>
+            <Setter Property="Height" Value="42"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="7"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="Border" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource BlueFocused}" TargetName="Border" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="{StaticResource BluePressed}" TargetName="Border" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="3"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="CircleButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource Blue}"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="FontSize" Value="45"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="Border" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource BlueFocused}" TargetName="Border" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="{StaticResource BluePressed}" TargetName="Border" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+    </Application.Resources>
+</Application>
