@@ -4,6 +4,8 @@ using System.Linq;
 
 namespace Discord.Core.Entities
 {
+    public delegate void RequestUserServersUpdate();
+
     /// <summary>
     /// <see cref="DiscordDb"/> related functions.
     /// </summary>
@@ -13,6 +15,10 @@ namespace Discord.Core.Entities
         /// Static connection for Discord DataBase.
         /// </summary>
         public static DiscordDb DiscordDb { get; private set; }
+
+        public static Users Loggeduser { get; private set; }
+
+        public static RequestUserServersUpdate RequrestUserServersUpdate { get; set; }
 
         /// <summary>
         /// Static constructor for initializing <see cref="DiscordDb"/> connection.
@@ -45,6 +51,7 @@ namespace Discord.Core.Entities
                 return false;
 
             user = authUser;
+            Loggeduser = authUser;
 
             return true;
         }
@@ -61,6 +68,7 @@ namespace Discord.Core.Entities
             }
             catch (Exception)
             {
+                throw;
                 return false;
             }
             return true;

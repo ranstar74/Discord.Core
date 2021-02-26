@@ -10,6 +10,7 @@
         Style="{StaticResource DarkWindowStyle}"
         MouseDown="WindowMouseDown"
         ResizeMode="CanMinimize"
+        KeyDown="WindowKeyDown"
 
         Title="Discord" Height="450" Width="800">
     <Grid x:Name="AuthGrid">

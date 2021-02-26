@@ -21,6 +21,11 @@ namespace Discord.Core.Windows
 
         private void LoginButton(object sender, RoutedEventArgs e)
         {
+            Login();
+        }
+
+        private void Login()
+        {
             var login = LoginEntry.Input;
             var pass = PasswordEntry.Input;
 
@@ -39,6 +44,12 @@ namespace Discord.Core.Windows
         private void WindowMouseDown(object sender, MouseButtonEventArgs e)
         {
             Keyboard.ClearFocus();
+        }
+
+        private void WindowKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                Login();
         }
     }
 }

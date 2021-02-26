@@ -24,8 +24,10 @@ namespace Discord.Core.Windows
             InitializeComponent();
             DataContext = this;
 
-            _activityTimer = new DispatcherTimer();
-            _activityTimer.Interval = TimeSpan.FromSeconds(1);
+            _activityTimer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromSeconds(1)
+            };
             _activityTimer.Tick += ActivityTimerTick;
             _activityTimer.Start();
 
@@ -33,6 +35,8 @@ namespace Discord.Core.Windows
 
             UpdateServers();
             OpenHomePage();
+
+            DbUtils.RequrestUserServersUpdate += UpdateServers;
         }
 
         private void ActivityTimerTick(object sender, EventArgs e)
@@ -43,15 +47,18 @@ namespace Discord.Core.Windows
 
         private void UpdateServers()
         {
+            var servers = DbUtils.DiscordDb.Servers.Where(
+                x => x.Users.Select(x => x.User).Contains(DbUtils.Loggeduser));
+            
             ServerControl.ItemsSource = _user.Servers.ToList();
         }
 
         private void AddNewServerClick(object sender, RoutedEventArgs e)
         {
-            //new CreateNewServerWindow(_user).Show();
+            new AddServer().Show();
 
             // TODO: Make only on dialog result == true
-            //UpdateServers();
+            UpdateServers();
         }
 
         private void ServerSelectClick(object sender, RoutedEventArgs e)

@@ -22,6 +22,7 @@
 
         <!-- Colors -->
 
+        <SolidColorBrush x:Key="Gray">#F6F6F7</SolidColorBrush>
         <SolidColorBrush x:Key="GrayMiddle">#B7B9BC</SolidColorBrush>
         <SolidColorBrush x:Key="Dark">#222428</SolidColorBrush>
         <SolidColorBrush x:Key="LightBlue">#7289DA</SolidColorBrush>
@@ -69,6 +70,24 @@
             </Style.Triggers>
         </Style>
 
+        <Style x:Key="RoundWhiteTextBoxStyle"
+               TargetType="TextBox">
+            <Setter Property="Height"
+                    Value="42" />
+            <Setter Property="FontSize"
+                    Value="16" />
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center" />
+            <Setter Property="Padding"
+                    Value="7" />
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius"
+                            Value="6" />
+                </Style>
+            </Style.Resources>
+        </Style>
+
         <Style x:Key="MessageTextBoxStyle"
                TargetType="TextBox">
             <Setter Property="Background"
@@ -101,6 +120,7 @@
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Padding" Value="7"/>
+            <Setter Property="FontFamily" Value="/Discord.Core;component/Resources/Fonts/Whitney/#Whitney" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -108,12 +128,53 @@
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
+                            <!--<Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" Value="{StaticResource BlueFocused}" TargetName="Border" />
                             </Trigger>
                             <Trigger Property="IsPressed" Value="True">
                                 <Setter Property="Background" Value="{StaticResource BluePressed}" TargetName="Border" />
-                            </Trigger>
+                            </Trigger>-->
+
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver"
+                                               Value="True" />
+                                    <Condition Property="IsEnabled"
+                                               Value="True" />
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.Setters>
+                                    <Setter Property="Background"
+                                            Value="{StaticResource BlueFocused}"
+                                            TargetName="Border" />
+                                </MultiTrigger.Setters>
+                            </MultiTrigger>
+
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver"
+                                               Value="False" />
+                                    <Condition Property="IsEnabled"
+                                               Value="True" />
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.Setters>
+                                    <Setter Property="Background"
+                                            Value="{StaticResource BluePressed}"
+                                            TargetName="Border" />
+                                </MultiTrigger.Setters>
+                            </MultiTrigger>
+
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsEnabled"
+                                               Value="False" />
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.Setters>
+                                    <Setter Property="Background"
+                                            Value="{StaticResource DarkGray}"
+                                            TargetName="Border" />
+                                </MultiTrigger.Setters>
+                            </MultiTrigger>
+
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
@@ -134,15 +195,23 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="Border" Background="{TemplateBinding Background}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <Border x:Name="Border"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
                         </Border>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="{StaticResource BlueFocused}" TargetName="Border" />
+                            <Trigger Property="IsMouseOver"
+                                     Value="True">
+                                <Setter Property="Background"
+                                        Value="{StaticResource BlueFocused}"
+                                        TargetName="Border" />
                             </Trigger>
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter Property="Background" Value="{StaticResource BluePressed}" TargetName="Border" />
+                            <Trigger Property="IsPressed"
+                                     Value="True">
+                                <Setter Property="Background"
+                                        Value="{StaticResource BluePressed}"
+                                        TargetName="Border" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

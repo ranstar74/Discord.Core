@@ -10,52 +10,160 @@
       Title="HomePage">
 
     <Grid>
-        <StackPanel  Margin="25">
-            <TextBlock
-                       Foreground="White"
-                       HorizontalAlignment="Center"
-                       FontSize="24"
-                       FontFamily="/Discord.Core;component/Resources/Fonts/Whitney/#Whitney">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Grid Grid.Row="0" Background="{StaticResource MediumGray}">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="10"
+                                  Direction="90"
+                                  RenderingBias="Quality"
+                                  ShadowDepth="3" />
+            </Grid.Effect>
+            <StackPanel Margin="20">
+                <TextBlock Foreground="White"
+                           HorizontalAlignment="Center"
+                           FontSize="24"
+                           FontFamily="/Discord.Core;component/Resources/Fonts/Whitney/#Whitney">
             <Run Text="Добро пожаловать в" />
             <Run Text="Discord.Core"
-                 FontFamily="/Discord.Core;component/Resources/Fonts/Whitney/#Whitney SemiBold" />
+                    FontFamily="/Discord.Core;component/Resources/Fonts/Whitney/#Whitney SemiBold" />
             <Run Text="!" />
-            </TextBlock>
-            <TextBlock Text="Discord - это место для друзей с кучей возможностей для общения."
-                       HorizontalAlignment="Center"
-                       Margin="0, 10, 0, 0"
-                       Foreground="{StaticResource GrayMiddle}"
-                       FontSize="15" />
-
-            <TextBlock Foreground="White">
+                </TextBlock>
+                <TextBlock Text="Discord - это место для друзей с кучей возможностей для общения."
+                           HorizontalAlignment="Center"
+                           Margin="0, 10, 0, 0"
+                           Foreground="{StaticResource GrayMiddle}"
+                           FontSize="15" />
+            </StackPanel>
+        </Grid>
+        
+        <!-- Users -->
+        <Grid Grid.Row="1">
+            <StackPanel Margin="25">
+                <TextBlock Foreground="White">
                 <Run Text="В сети - " />
                 <Run x:Name="OnlineCount" />
-            </TextBlock>
-            <ItemsControl x:Name="UsersControl">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Margin="10">
-                            <Separator BorderBrush="{StaticResource MediumGray}" BorderThickness="1"/>
-                            <StackPanel Orientation="Horizontal" Margin="5">
-                                <Image Source="/Resources/Images/noAvatar.png"
-                                       RenderOptions.BitmapScalingMode="Fant"
-                                       Margin="5"
-                                       Width="40" />
-                                <TextBlock Foreground="White" Margin="5" FontSize="14">
+                </TextBlock>
+                <ItemsControl x:Name="UsersControl">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="10">
+                                <Separator BorderBrush="{StaticResource MediumGray}"
+                                           BorderThickness="1" />
+                                <StackPanel Orientation="Horizontal"
+                                            Margin="5">
+                                    <Image Source="/Resources/Images/noAvatar.png"
+                                           RenderOptions.BitmapScalingMode="Fant"
+                                           Margin="5"
+                                           Width="40" />
+                                    <TextBlock Foreground="White"
+                                               Margin="5"
+                                               FontSize="14">
                                     <Run Text="{Binding Login}"
                                          Foreground="SpringGreen"
                                          FontWeight="Medium" />
-                                </TextBlock>
+                                    </TextBlock>
+                                </StackPanel>
                             </StackPanel>
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </Grid>
+        
+        <!-- Servers -->
+        <Grid Grid.Row="2">
+            <StackPanel  Margin="25">
+                <TextBlock Text="Присоеденяетесь к другим сообществам!"
+                           Foreground="White"
+                           HorizontalAlignment="Left"
+                           FontSize="24"
+                           FontFamily="/Discord.Core;component/Resources/Fonts/Whitney/#Whitney">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=ServersControl, 
+                                    Path=ItemsSource.Count}" Value="0">
+                                    <Setter Property="Visibility"
+                                            Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                    <ItemsControl x:Name="ServersControl"
+                                  Margin="0, 10, 10, 10">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid HorizontalAlignment="Left" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="6"
+                                        Width="220"
+                                        Height="100"
+                                        BorderThickness="1"
+                                        Padding="10"
+                                        CornerRadius="10"
+                                        Tag="{Binding DataContext, RelativeSource={RelativeSource Self}}"
+                                        MouseDown="ServerMouseDown">
+                                    <DockPanel LastChildFill="False"
+                                               IsHitTestVisible="False">
+                                        <Image Source="/Resources/Images/discordLogo.png"
+                                               DockPanel.Dock="Left"
+                                               IsHitTestVisible="False" />
+                                        <Viewbox Margin="10, 0, 0, 0"
+                                                 DockPanel.Dock="Right">
+                                            <TextBlock Text="{Binding Name}"
+                                                       IsHitTestVisible="False"
+                                                       VerticalAlignment="Top"
+                                                       Foreground="White"
+                                                       FontSize="20"
+                                                       HorizontalAlignment="Right"/>
+                                        </Viewbox>
+                                    </DockPanel>
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Background"
+                                                            Value="{StaticResource BlackGray}" />
+                                                    <Setter Property="Effect">
+                                                        <Setter.Value>
+                                                            <DropShadowEffect BlurRadius="20"
+                                                                              ShadowDepth="0.1"
+                                                                              Opacity="0.4" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="False">
+                                                    <Setter Property="Background"
+                                                            Value="{StaticResource Dark}" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>
