@@ -3,6 +3,7 @@ using Discord.Core.Entities.Tables;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,10 +43,18 @@ namespace Discord.Core.Pages
 
         private void UpdateUsers()
         {
-            // TODO: Friends
-            var users = DbUtils.DiscordDb.Users.Where(x => x.LastActivity != null).ToList();
+            // TODO: 
+            var users = DbUtils.DiscordDb.Users.AsQueryable().Where(x => x.LastActivity != null).ToList();
 
-            users = users.Where(x => DateTime.Now - x.LastActivity < TimeSpan.FromSeconds(5)).ToList();
+            users = users.Where(x =>
+            {
+                // Force reload user
+                DbUtils.DiscordDb.Entry(x).Reload();
+
+                var timeFromLastActivity = DateTime.Now.Subtract((DateTime)x.LastActivity).Seconds;
+
+                return timeFromLastActivity < 3;
+            }).ToList();
 
             users.ForEach(u =>
             {
