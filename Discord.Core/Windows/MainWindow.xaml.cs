@@ -55,7 +55,7 @@ namespace Discord.Core.Windows
 
         private void AddNewServerClick(object sender, RoutedEventArgs e)
         {
-            new AddServer().Show();
+            new AddServer().ShowDialog();
 
             // TODO: Make only on dialog result == true
             UpdateServers();

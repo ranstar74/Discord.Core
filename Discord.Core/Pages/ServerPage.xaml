@@ -66,9 +66,18 @@
                                      <Run Text="{Binding FormattedDate, Mode=OneWay}" 
                                         FontSize="12"/>
                                     </TextBlock>
-                                    
-                                    <TextBlock Grid.Row="1" Margin="0, 7, 0, 7"
-                                        Text="{Binding Text}" Foreground="GhostWhite" TextWrapping="Wrap"/>
+
+                                    <TextBox Background="Transparent"
+                                             BorderThickness="0"
+                                             Text="{Binding Text, Mode=OneWay}"
+                                             IsReadOnly="True"
+                                             TextWrapping="Wrap" 
+                                             Grid.Row="1"
+                                             Margin="0, 7, 0, 7"
+                                             Foreground="GhostWhite"/>
+                                    <!--Grid.Row="1" Margin="0, 7, 0, 7"
+                                    <TextBlock Grid.Row="1" Margin="0, 7, 0, 7" 
+                                        Text="{Binding Text}" Foreground="GhostWhite" TextWrapping="Wrap"/>-->
                                 </Grid>
                             </Grid>
                         </DataTemplate>

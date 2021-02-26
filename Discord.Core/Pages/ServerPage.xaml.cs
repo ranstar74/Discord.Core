@@ -42,6 +42,7 @@ namespace Discord.Core.Pages
             UpdateMessages();
         }
 
+        private static int counter = 0;
         private void UpdateMessages()
         {
             var messages = DbUtils.DiscordDb.Messages.AsQueryable().Where(x => x.Server == Server).ToList();
@@ -64,22 +65,27 @@ namespace Discord.Core.Pages
         /// </summary>
         private void MessageTextBoxKeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key == System.Windows.Input.Key.Enter)
-                if (!string.IsNullOrEmpty(MessageTextBox.Text))
+            if (e.Key == Key.Enter)
+            {
+                MessageTextBox.Clear(); 
+                SendMessage(MessageTextBox.Text);
+            }
+        }
+
+        private void SendMessage(string msg)
+        {
+            if (!string.IsNullOrEmpty(msg))
+            {
+                var message = new Messages()
                 {
-                    var msg = new Messages()
-                    {
-                        User = _user,
-                        Server = Server,
-                        Text = MessageTextBox.Text,
-                        Date = DateTime.Now
-                    };
-                    DbUtils.DiscordDb.Messages.Add(msg);
-                    if (DbUtils.SafeSave())
-                    {
-                        MessageTextBox.Clear();
-                    }
-                }
+                    User = _user,
+                    Server = Server,
+                    Text = msg,
+                    Date = DateTime.Now
+                };
+                DbUtils.DiscordDb.Messages.Add(message);
+                DbUtils.SafeSave();
+            }
         }
     }
 }

@@ -14,55 +14,59 @@
         Title="Discord" Height="750" Width="1200">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="65" />
+            <ColumnDefinition Width="75" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
         <!-- Groups -->
         <Grid Grid.Column="0" Background="{StaticResource BlackGray}">
-            <StackPanel Margin="5">
-                
-                <!-- Home screen button -->
-                <Button Margin="0, 4, 0, 4"
-                        DockPanel.Dock="Top"
-                        Click="HomePageClick"
-                        Style="{StaticResource CircleButtonStyle}">
-                    <Image Source="/Resources/Images/discordLogo.png"
-                           Width="35" />
-                </Button>
+            <ScrollViewer>
+                <StackPanel Margin="5">
 
-                <!-- User servers -->
-                <ItemsControl x:Name="ServerControl" DockPanel.Dock="Top">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Grid x:Name="ServerButtonGrid">
-                                <Button Margin="0, 4, 0, 4"
-                                        Click="ServerSelectClick"
-                                        Tag="{Binding Server}"
-                                        Style="{StaticResource CircleButtonStyle}">
-                                    <Viewbox Margin="2">
-                                        <TextBlock Text="{Binding Server.Name}" />
-                                    </Viewbox>
-                                </Button>
-                            </Grid>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-                
-                <!-- Add server -->
-                <Button Margin="0, 4, 0, 4"
-                        DockPanel.Dock="Bottom" 
-                        Click="AddNewServerClick"
-                        Style="{StaticResource CircleButtonStyle}">
-                    <Image Source="/Resources/Images/btnAddIcon.png" Width="20" />
-                </Button>
-                
-            </StackPanel>
+                    <!-- Home screen button -->
+                    <Button Margin="0, 4, 0, 4"
+                            DockPanel.Dock="Top"
+                            Click="HomePageClick"
+                            Style="{StaticResource CircleButtonStyle}">
+                        <Image Source="/Resources/Images/discordLogo.png"
+                               Width="35" />
+                    </Button>
+
+                    <!-- User servers -->
+                    <ItemsControl x:Name="ServerControl"
+                                  DockPanel.Dock="Top">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid x:Name="ServerButtonGrid">
+                                    <Button Margin="0, 4, 0, 4"
+                                            Click="ServerSelectClick"
+                                            Tag="{Binding Server}"
+                                            Style="{StaticResource CircleButtonStyle}">
+                                        <Viewbox Margin="2">
+                                            <TextBlock Text="{Binding Server.Name}" />
+                                        </Viewbox>
+                                    </Button>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <!-- Add server -->
+                    <Button Margin="0, 4, 0, 4"
+                            DockPanel.Dock="Bottom"
+                            Click="AddNewServerClick"
+                            Style="{StaticResource CircleButtonStyle}">
+                        <Image Source="/Resources/Images/btnAddIcon.png"
+                               Width="20" />
+                    </Button>
+
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
 
         <!-- Content -->
