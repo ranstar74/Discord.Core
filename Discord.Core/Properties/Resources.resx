@@ -121,6 +121,9 @@
   <data name="btnAddIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\images\btnaddicon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="discordLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\discordlogo.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="noAvatar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\images\noavatar.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

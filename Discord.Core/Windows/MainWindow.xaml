@@ -20,6 +20,15 @@
         <!-- Groups -->
         <Grid Grid.Column="0" Background="{StaticResource BlackGray}">
             <StackPanel Margin="5">
+                <Button Margin="0, 4, 0, 4"
+                        DockPanel.Dock="Top"
+                        Click="AddNewServerClick"
+                        Style="{StaticResource CircleButtonStyle}">
+                    <Image Source="/Resources/Images/discordLogo.png"
+                           Width="35"
+                           RenderOptions.BitmapScalingMode="Fant"
+                           RenderOptions.EdgeMode="Aliased" />
+                </Button>
                 <ItemsControl x:Name="GroupsControl" DockPanel.Dock="Top">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -31,8 +40,7 @@
                             <Button Margin="0, 4, 0, 4"
                                     Click="ServerSelectClick"
                                     Tag="{Binding Group}"
-                                    Style="{StaticResource CircleButtonStyle}"
-                                    >
+                                    Style="{StaticResource CircleButtonStyle}">
                                 <Viewbox Margin="2">
                                     <TextBlock Text="{Binding Group.Name}" TextWrapping="Wrap"/>
                                 </Viewbox>

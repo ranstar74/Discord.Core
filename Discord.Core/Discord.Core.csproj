@@ -5,7 +5,7 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <AssemblyName>Discord.Core</AssemblyName>
-    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <ApplicationIcon>app.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -38,6 +38,7 @@
     <None Remove="Resources\Fonts\Whitney\WhitneyIndexWhite-SqLt.ttf" />
     <None Remove="Resources\Fonts\Whitney\WhitneyIndexWhite-SqMd.ttf" />
     <None Remove="Resources\Images\btnAddIcon.png" />
+    <None Remove="Resources\Images\discordLogo.png" />
     <None Remove="Resources\Images\noAvatar.png" />
     <None Remove="Resources\Images\qrSample.png" />
   </ItemGroup>
@@ -82,6 +83,7 @@
     <Resource Include="Resources\Fonts\Whitney\WhitneyIndexWhite-SqLt.ttf" />
     <Resource Include="Resources\Fonts\Whitney\WhitneyIndexWhite-SqMd.ttf" />
     <Resource Include="Resources\Images\btnAddIcon.png" />
+    <Resource Include="Resources\Images\discordLogo.png" />
     <Resource Include="Resources\Images\noAvatar.png" />
     <Resource Include="Resources\Images\qrSample.png" />
   </ItemGroup>

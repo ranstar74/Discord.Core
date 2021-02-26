@@ -44,11 +44,10 @@ namespace Discord.Core.Windows
             _activeServer = ((Button)sender).Tag as Groups;
 
 
-            // Don't refresh messages if user clicked on the same server
+            // Don't refresh server if user clicked on the same server
                 if (oldServer != _activeServer)
             {
                 ContentFrame.Content = new ServerPage(_user, _activeServer);
-                //_messages.Clear();
             }
         }
     }

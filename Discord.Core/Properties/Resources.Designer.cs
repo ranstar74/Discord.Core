@@ -73,6 +73,16 @@ namespace Discord.Core.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] discordLogo {
+            get {
+                object obj = ResourceManager.GetObject("discordLogo", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] noAvatar {
             get {
                 object obj = ResourceManager.GetObject("noAvatar", resourceCulture);
