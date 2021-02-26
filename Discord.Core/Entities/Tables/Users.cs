@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -9,7 +10,7 @@ namespace Discord.Core.Entities.Tables
         public Users()
         {
             Messages = new HashSet<Messages>();
-            Groups = new HashSet<GroupsToUsers>();
+            Servers = new HashSet<ServersToUsers>();
         }
 
         [Key]
@@ -21,7 +22,9 @@ namespace Discord.Core.Entities.Tables
         [MaxLength(50)]
         public string Password { get; set; }
 
+        public DateTime? LastActivity { get; set; }
+
         public virtual ICollection<Messages> Messages { get; set; }
-        public virtual ICollection<GroupsToUsers> Groups { get; set; }
+        public virtual ICollection<ServersToUsers> Servers { get; set; }
     }
 }

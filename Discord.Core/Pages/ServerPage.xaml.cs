@@ -18,9 +18,9 @@ namespace Discord.Core.Pages
         private readonly ObservableCollection<Messages> _messages;
 
         private Users _user;
-        private Groups _group;
+        public Servers Server { get; set; }
 
-        public ServerPage(Users user, Groups group)
+        public ServerPage(Users user, Servers server)
         {
             InitializeComponent();
             DataContext = this;
@@ -32,7 +32,7 @@ namespace Discord.Core.Pages
             _messages = new ObservableCollection<Messages>();
 
             _user = user;
-            _group = group;
+            Server = server;
 
             MessagesControl.ItemsSource = _messages;
         }
@@ -44,7 +44,7 @@ namespace Discord.Core.Pages
 
         private void UpdateMessages()
         {
-            var messages = _group.Messages.ToList();
+            var messages = Server.Messages.ToList();
 
             messages.ForEach(m =>
             {
@@ -70,7 +70,7 @@ namespace Discord.Core.Pages
                     var msg = new Messages()
                     {
                         User = _user,
-                        Group = _group,
+                        Server = Server,
                         Text = MessageTextBox.Text,
                         Date = DateTime.Now
                     };

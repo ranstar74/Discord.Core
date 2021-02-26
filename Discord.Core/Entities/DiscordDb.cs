@@ -7,8 +7,8 @@ namespace Discord.Core.Entities
     {
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Messages> Messages { get; set; }
-        public virtual DbSet<GroupsToUsers> GroupsToUsers { get; set; }
-        public virtual DbSet<Groups> Groups { get; set; }
+        public virtual DbSet<ServersToUsers> ServersToUsers { get; set; }
+        public virtual DbSet<Servers> Servers { get; set; }
 
         public DiscordDb()
         {
@@ -17,17 +17,17 @@ namespace Discord.Core.Entities
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<GroupsToUsers>().HasKey(k => new { k.UserId, k.GroupId });
+            modelBuilder.Entity<ServersToUsers>().HasKey(k => new { k.UserId, k.ServerId });
 
-            modelBuilder.Entity<GroupsToUsers>()
+            modelBuilder.Entity<ServersToUsers>()
                 .HasOne(x => x.User)
-                .WithMany(x => x.Groups)
+                .WithMany(x => x.Servers)
                 .HasForeignKey(x => x.UserId);
 
-            modelBuilder.Entity<GroupsToUsers>()
-               .HasOne(x => x.Group)
+            modelBuilder.Entity<ServersToUsers>()
+               .HasOne(x => x.Server)
                .WithMany(x => x.Users)
-               .HasForeignKey(x => x.GroupId);
+               .HasForeignKey(x => x.ServerId);
 
             base.OnModelCreating(modelBuilder);
         }

@@ -10,12 +10,12 @@ namespace Discord.Core.Entities.Tables
         public int Id { get; set; }
         public string Text { get; set; }
         public int UserId { get; set; }
-        public int GroupId { get; set; }
+        public int ServerId { get; set; }
         public DateTime Date { get; set; }
 
         public string FormattedDate => Date.Formatted();
 
-        public virtual Groups Group { get; set; }
+        public virtual Servers Server { get; set; }
         public virtual Users User { get; set; }
     }
 }

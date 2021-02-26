@@ -23,8 +23,8 @@
             <Label Content="С возвращением!" 
                    Foreground="White" 
                    HorizontalAlignment="Center"
-                   FontSize="24" 
-                   FontFamily="/Discordx;component/Resources/Fonts/Whitney/#Whitney Semibold"/>
+                   FontSize="24"
+                   FontFamily="/Discord.Core;component/Resources/Fonts/Whitney/#Whitney Semibold"/>
 
             <Label Content="Мы так рады видеть вас снова!" 
                    HorizontalAlignment="Center"
@@ -55,8 +55,7 @@
 
         <StackPanel Grid.Column="1">
             <Image Source="/Resources/Images/qrSample.png" Width="180" 
-                   Margin="25"
-                   RenderOptions.BitmapScalingMode="Fant"/>
+                   Margin="25"/>
 
             <StackPanel>
                 <TextBlock Text="Войти с помощью QR-кода" 

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Discord.Core.Entities.Tables
 {
-    public class GroupsToUsers
+    public class ServersToUsers
     {
         [Key]
         public int UserId { get; set; }
@@ -12,8 +12,8 @@ namespace Discord.Core.Entities.Tables
         public virtual Users User { get; set; }
 
         [Key]
-        public int GroupId { get; set; }
-        [ForeignKey("GroupId")]
-        public virtual Groups Group { get; set; }
+        public int ServerId { get; set; }
+        [ForeignKey("ServerId")]
+        public virtual Servers Server { get; set; }
     }
 }

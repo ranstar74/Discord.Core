@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Discord.Core.Entities.Tables
 {
-    public class Groups
+    public class Servers
     {
-        public Groups()
+        public Servers()
         {
             Messages = new HashSet<Messages>();
-            Users = new HashSet<GroupsToUsers>();
+            Users = new HashSet<ServersToUsers>();
         }
 
         [Key]
@@ -16,6 +16,6 @@ namespace Discord.Core.Entities.Tables
         public string Name { get; set; }
         
         public virtual ICollection<Messages> Messages { get; set; }
-        public virtual ICollection<GroupsToUsers> Users { get; set; }
+        public virtual ICollection<ServersToUsers> Users { get; set; }
     }
 }

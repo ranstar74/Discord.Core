@@ -13,6 +13,13 @@
             <Setter Property="FontFamily" Value="/Discord.Core;component/Resources/Fonts/Whitney/#Whitney Medium"/>
         </Style>
 
+        <Style TargetType="Image">
+            <Setter Property="RenderOptions.BitmapScalingMode"
+                    Value="Fant" />
+            <Setter Property="RenderOptions.EdgeMode"
+                    Value="Aliased" />
+        </Style>
+
         <!-- Colors -->
 
         <SolidColorBrush x:Key="GrayMiddle">#B7B9BC</SolidColorBrush>

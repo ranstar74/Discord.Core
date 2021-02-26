@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Discord.Core.Windows"
+        xmlns:usercontrols="clr-namespace:Discord.Core.UserControls"
         mc:Ignorable="d"
         
         WindowStartupLocation="CenterScreen"
@@ -20,16 +21,18 @@
         <!-- Groups -->
         <Grid Grid.Column="0" Background="{StaticResource BlackGray}">
             <StackPanel Margin="5">
+                
+                <!-- Home screen button -->
                 <Button Margin="0, 4, 0, 4"
                         DockPanel.Dock="Top"
-                        Click="AddNewServerClick"
+                        Click="HomePageClick"
                         Style="{StaticResource CircleButtonStyle}">
                     <Image Source="/Resources/Images/discordLogo.png"
-                           Width="35"
-                           RenderOptions.BitmapScalingMode="Fant"
-                           RenderOptions.EdgeMode="Aliased" />
+                           Width="35" />
                 </Button>
-                <ItemsControl x:Name="GroupsControl" DockPanel.Dock="Top">
+
+                <!-- User servers -->
+                <ItemsControl x:Name="ServerControl" DockPanel.Dock="Top">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel />
@@ -37,25 +40,28 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Button Margin="0, 4, 0, 4"
-                                    Click="ServerSelectClick"
-                                    Tag="{Binding Group}"
-                                    Style="{StaticResource CircleButtonStyle}">
-                                <Viewbox Margin="2">
-                                    <TextBlock Text="{Binding Group.Name}" TextWrapping="Wrap"/>
-                                </Viewbox>
-                            </Button>
+                            <Grid x:Name="ServerButtonGrid">
+                                <Button Margin="0, 4, 0, 4"
+                                        Click="ServerSelectClick"
+                                        Tag="{Binding Server}"
+                                        Style="{StaticResource CircleButtonStyle}">
+                                    <Viewbox Margin="2">
+                                        <TextBlock Text="{Binding Server.Name}" />
+                                    </Viewbox>
+                                </Button>
+                            </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
+                
+                <!-- Add server -->
                 <Button Margin="0, 4, 0, 4"
                         DockPanel.Dock="Bottom" 
                         Click="AddNewServerClick"
                         Style="{StaticResource CircleButtonStyle}">
-                    <Image Source="/Resources/Images/btnAddIcon.png" Width="20" 
-                           RenderOptions.BitmapScalingMode="Fant" 
-                           RenderOptions.EdgeMode="Aliased"/>
+                    <Image Source="/Resources/Images/btnAddIcon.png" Width="20" />
                 </Button>
+                
             </StackPanel>
         </Grid>
 
