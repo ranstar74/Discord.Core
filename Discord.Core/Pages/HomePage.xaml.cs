@@ -26,17 +26,26 @@ namespace Discord.Core.Pages
 
             _userUpdateTimer = new DispatcherTimer();
             _userUpdateTimer.Tick += UpdateTimerTick;
-            _userUpdateTimer.Interval = TimeSpan.FromSeconds(5);
+            _userUpdateTimer.Interval = TimeSpan.FromSeconds(1);
             _userUpdateTimer.Start();
 
             _users = new ObservableCollection<Users>();
+
+            UsersControl.ItemsSource = _users;
+            UpdateUsers();
         }
 
         private void UpdateTimerTick(object sender, EventArgs e)
         {
+            UpdateUsers();
+        }
+
+        private void UpdateUsers()
+        {
             // TODO: Friends
-            var users = DbUtils.DiscordDb.Users.Where(
-                x => DateTime.Now - x.LastActivity < TimeSpan.FromSeconds(5)).ToList();
+            var users = DbUtils.DiscordDb.Users.Where(x => x.LastActivity != null).ToList();
+
+            users = users.Where(x => DateTime.Now - x.LastActivity < TimeSpan.FromSeconds(5)).ToList();
 
             users.ForEach(u =>
             {
@@ -45,12 +54,18 @@ namespace Discord.Core.Pages
                     _users.Add(u);
                 }
             });
-            
+
+            var usersToRemove = new List<Users>();
+
             // Remove offline users.
-            foreach(var user in _users)
+            foreach (var user in _users)
             {
                 if (!users.Contains(user))
-                    _users.Remove(user);
+                    usersToRemove.Add(user);
+            }
+            foreach(var userToRemove in usersToRemove)
+            {
+                _users.Remove(userToRemove);
             }
 
             OnlineCount.Text = _users.Count().ToString();

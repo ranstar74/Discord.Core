@@ -44,7 +44,7 @@ namespace Discord.Core.Pages
 
         private void UpdateMessages()
         {
-            var messages = Server.Messages.ToList();
+            var messages = DbUtils.DiscordDb.Messages.AsQueryable().Where(x => x.Server == Server).ToList();
 
             messages.ForEach(m =>
             {

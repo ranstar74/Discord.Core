@@ -1,4 +1,5 @@
-﻿using Discord.Core.Entities.Tables;
+﻿using Discord.Core.Entities;
+using Discord.Core.Entities.Tables;
 using Discord.Core.Pages;
 using System;
 using System.Linq;
@@ -26,15 +27,18 @@ namespace Discord.Core.Windows
             _activityTimer = new DispatcherTimer();
             _activityTimer.Interval = TimeSpan.FromSeconds(1);
             _activityTimer.Tick += ActivityTimerTick;
+            _activityTimer.Start();
 
             _user = user;
 
             UpdateServers();
+            OpenHomePage();
         }
 
         private void ActivityTimerTick(object sender, EventArgs e)
         {
             _user.LastActivity = DateTime.Now;
+            DbUtils.SafeSave();
         }
 
         private void UpdateServers()
@@ -65,7 +69,12 @@ namespace Discord.Core.Windows
 
         private void HomePageClick(object sender, RoutedEventArgs e)
         {
-            if(_activeServer != null)
+            OpenHomePage();
+        }
+
+        private void OpenHomePage()
+        {
+            if (ContentFrame.Content?.GetType() != typeof(HomePage))
             {
                 _activeServer = null;
                 ContentFrame.Content = new HomePage();
